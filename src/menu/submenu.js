@@ -8,9 +8,8 @@ class Submenu extends Component {
     }
 
     render() {
-
-        let identifier = window.btoa(this.props.name);
         let icon = '';
+        let identifier = this.props.name.toLowerCase().split(' ').join('-');
 
         if (this.props.icon) {
             icon = <i className="material-icons">{this.props.icon}</i>;
@@ -19,13 +18,12 @@ class Submenu extends Component {
         return (
             <ul>
                 <li>
-                    <a className="dropdown-button" data-activates="comercial">{this.props.name}
+                    <a className="dropdown-button" data-activates={identifier}>{this.props.name}
                         <i className="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>
-                <ul id='comercial' className='dropdown-content'>
-                    <MenuItem name="Clientes" href="#clientes" icon="supervisor_account"/>
-                    <li><a href="#!">Planos</a></li>
+                <ul id={identifier} className='dropdown-content'>
+                    {this.props.menuList}
                 </ul>
             </ul>
         );

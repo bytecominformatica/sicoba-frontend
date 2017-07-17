@@ -1,3 +1,8 @@
-body{
-    background: red;
+nav {
+    color: #fff;
+    background-color: #00265c;
+}
+
+.background-white {
+    background: white;
 }

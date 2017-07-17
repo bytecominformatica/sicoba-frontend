@@ -15,15 +15,18 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         hot: true,
+        host: '0.0.0.0',
         port: 3000,
+        disableHostCheck: true,
         contentBase: path.resolve(__dirname, 'dist')
     },
     plugins: [
         new CleanWebpackPlugin(['dist'], {exclude: ['index.html']}),
         new CopyWebpackPlugin([
-            {from: './node_modules/font-awesome/css/font-awesome.css', to: 'assets/css'},
+            {from: './node_modules/font-awesome/css/font-awesome.min.css', to: 'assets/css'},
             {from: './node_modules/materialize-css/dist/css/materialize.min.css', to: 'assets/css'},
             {from: './node_modules/materialize-css/dist/fonts/', to: 'assets/fonts'},
+            {from: './node_modules/font-awesome/fonts/', to: 'assets/fonts'},
             {from: './node_modules/materialize-css/dist/js/materialize.min.js', to: 'assets/js'},
             {from: './node_modules/jquery/dist/jquery.min.js', to: 'assets/js'}
         ]),

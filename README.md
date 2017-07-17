@@ -23,6 +23,9 @@ Technologies In Use
 - HTML5
 - CSS
 - Javascript
+- ES6
+- Webpack
+- Babel
 
 --------------------------------------------
 Copyright (C) 2017, Clairton Carneiro Luz

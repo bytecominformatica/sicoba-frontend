@@ -14,13 +14,13 @@ class MenuItem extends Component {
     }
 
     render() {
-        let icon = '';
+        let icon = this.props.icon ? <i className={this.props.icon}></i> : '';
+        let target = this.props.target ? this.props.target : '_self';
 
-        if (this.props.icon) {
-            icon = <i className="material-icons">{this.props.icon}</i>;
-        }
         return (
-            <li><a href={this.props.href} onClick={this.closeMenu}>{icon}{this.props.name}</a></li>
+            <li><a href={this.props.href} onClick={this.closeMenu} target={target}>
+                {icon}{this.props.name}
+            </a></li>
         );
     }
 }
