@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import Drawer from './menu/Drawer';
-import './App.css';
+import MenuDrawer from './menu/menu-drawer'
 
 class App extends Component {
     render() {
         return (
-            <div className="App App-layout">
-                <Drawer/>
+            <div>
+                <MenuDrawer/>
             </div>
         );
     }
