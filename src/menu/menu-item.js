@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import logo from '../images/logo.png';
-import sidebarBackground from '../images/sidebar-background.jpg';
+import {
+    Route,
+    Link
+} from 'react-router-dom'
 
 class MenuItem extends Component {
 
@@ -18,9 +20,14 @@ class MenuItem extends Component {
         let target = this.props.target ? this.props.target : '_self';
 
         return (
-            <li><a href={this.props.href} onClick={this.closeMenu} target={target}>
-                {icon}{this.props.name}
-            </a></li>
+            <Route path={this.props.href} exact={this.props.activeOnlyWhenExact} children={({match}) => (
+                <li className={(match ? 'active' : '') + (this.props.isSubitem ? ' submenu-item' : '')}>
+                    <Link to={this.props.href} onClick={this.closeMenu}>
+                        {icon}
+                        {this.props.name}
+                    </Link>
+                </li>
+            )}/>
         );
     }
 }

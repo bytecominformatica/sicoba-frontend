@@ -2,7 +2,17 @@ nav {
     color: #fff;
     background-color: #00265c;
 }
+code{
+    background-color: lightgray;
+    border: 1px dashed black;
+    font-family: monospace;
+    padding: 0.1em;
+}
 
 .background-white {
     background: white;
+}
+
+.submenu-item {
+    background: #e6f2ff;
 }

@@ -8,17 +8,15 @@ class Submenu extends Component {
     }
 
     render() {
-        let icon = '';
+        let icon = this.props.icon ? <i className={this.props.icon}></i> : '';
         let identifier = this.props.name.toLowerCase().split(' ').join('-');
-
-        if (this.props.icon) {
-            icon = <i className="material-icons">{this.props.icon}</i>;
-        }
 
         return (
             <ul>
                 <li>
-                    <a className="dropdown-button" data-activates={identifier}>{this.props.name}
+                    <a className="dropdown-button" data-activates={identifier}>
+                        {icon}
+                        {this.props.name}
                         <i className="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>

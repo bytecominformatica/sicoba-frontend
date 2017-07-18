@@ -2,7 +2,8 @@
   {
     "name": "Dashboard",
     "icon": "fa fa-dashboard fa-fw",
-    "url": "#/"
+    "url": "/",
+    "activeOnlyWhenExact": true
   },
   {
     "name": "Comercial",
@@ -11,12 +12,12 @@
       {
         "name": "Clientes",
         "icon": "fa fa-user fa-fw",
-        "url": "#/clientes"
+        "url": "/clientes"
       },
       {
         "name": "Planos",
         "icon": "fa fa-cloud",
-        "url": "#/planos"
+        "url": "/planos"
       }
     ]
   },
@@ -27,27 +28,27 @@
       {
         "name": "Enviar Retorno",
         "icon": "fa fa-upload",
-        "url": "#/retorno"
+        "url": "/retorno"
       },
       {
         "name": "Cedentes",
         "icon": "fa fa-upload",
-        "url": "#/cedentes"
+        "url": "/cedentes"
       },
       {
         "name": "Contas Gerencianet",
         "icon": "fa fa-credit-card",
-        "url": "#/gerencianet/accounts"
+        "url": "/gerencianet/accounts"
       },
       {
         "name": "Relatório de títulos",
         "icon": "fa fa-files-o",
-        "url": "#/titulos/relatorio"
+        "url": "/titulos/relatorio"
       },
       {
         "name": "Relatório de cobranças",
         "icon": "fa fa-files-o",
-        "url": "#/charge/report"
+        "url": "/charge/report"
       }
     ]
   },
@@ -58,7 +59,7 @@
       {
         "name": "Equipamentos",
         "icon": "fa fa-wrench",
-        "url": "#/equipamentos"
+        "url": "/equipamentos"
       }
     ]
   },
@@ -69,7 +70,7 @@
       {
         "name": "Mikrotik",
         "icon": "fa fa-maxcdn",
-        "url": "#/mikrotiks"
+        "url": "/mikrotiks"
       }
     ]
   },
