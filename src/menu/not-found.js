@@ -4,7 +4,7 @@ class NotFound extends Component {
     render() {
         return (
             <div className="center">
-                <img src={erro404} alt="logo"/>
+                <img className="responsive-img" src={erro404} alt="logo"/>
                 <h5>Ops, não foi possível encontrar conteúdo para: <code>{this.props.location.pathname}</code></h5>
             </div>
         );

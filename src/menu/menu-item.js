@@ -19,16 +19,24 @@ class MenuItem extends Component {
         let icon = this.props.icon ? <i className={this.props.icon}></i> : '';
         let target = this.props.target ? this.props.target : '_self';
 
-        return (
-            <Route path={this.props.href} exact={this.props.activeOnlyWhenExact} children={({match}) => (
-                <li className={(match ? 'active' : '') + (this.props.isSubitem ? ' submenu-item' : '')}>
-                    <Link to={this.props.href} onClick={this.closeMenu}>
-                        {icon}
-                        {this.props.name}
-                    </Link>
-                </li>
-            )}/>
-        );
+        if (this.props.href.indexOf('http') != -1) {
+            return (
+                <li><a href={this.props.href} onClick={this.closeMenu} target={target}>
+                    {icon}{this.props.name}
+                </a></li>
+            );
+        } else {
+            return (
+                <Route path={this.props.href} exact={this.props.activeOnlyWhenExact} children={({match}) => (
+                    <li className={(match ? 'active' : '') + (this.props.isSubitem ? ' submenu-item' : '')}>
+                        <Link to={this.props.href} onClick={this.closeMenu} target={target}>
+                            {icon}
+                            {this.props.name}
+                        </Link>
+                    </li>
+                )}/>
+            );
+        }
     }
 }
 

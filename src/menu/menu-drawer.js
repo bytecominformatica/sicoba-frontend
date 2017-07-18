@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import logo from '../images/logo.png';
+import logoNegativa from '../images/logo-negative.png';
 import sidebarBackground from '../images/sidebar-background.jpg';
 import menuData from './menu.json';
 
@@ -42,7 +43,7 @@ class MenuDrawer extends Component {
                 <nav>
                     <div className="nav-wrapper">
                         <a href="#" className="brand-logo center">
-                            Bytecom
+                            <img src={logoNegativa} width='55px'/>
                         </a>
                         <a href="#" data-activates="slide-out" className="button-collapse show-on-medium-and-up">
                             <i className="material-icons">menu</i>
