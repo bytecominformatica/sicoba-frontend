@@ -2,7 +2,21 @@ nav {
     color: #fff;
     background-color: #00265c;
 }
-code{
+
+.btn {
+    color: #fff;
+    background-color: #bb2020;
+}
+
+.btn:hover {
+    background-color: #a31c1c;
+}
+
+.btn:focus {
+    background-color: rgba(163, 28, 28, 0.85);
+}
+
+code {
     background-color: lightgray;
     border: 1px dashed black;
     font-family: monospace;

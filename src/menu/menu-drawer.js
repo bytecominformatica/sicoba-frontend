@@ -37,6 +37,11 @@ class MenuDrawer extends Component {
                             <span className="white-text email">sac@bytecominformatica.com.br</span>
                         </div>
                     </li>
+                    <li>
+                        <a href="/#login">
+                            Login
+                        </a>
+                    </li>
                     {menuList}
                 </ul>
 
