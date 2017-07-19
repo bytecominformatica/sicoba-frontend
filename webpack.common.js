@@ -21,6 +21,9 @@ module.exports = {
         disableHostCheck: true,
         contentBase: path.resolve(__dirname, 'dist')
     },
+    externals: {
+        config: JSON.stringify(require('./config.json')),
+    },
     plugins: [
         new CleanWebpackPlugin(['dist'], {exclude: ['index.html']}),
         new CopyWebpackPlugin([
@@ -37,7 +40,11 @@ module.exports = {
         rules: [
             {test: /\.(js|jsx)$/, exclude: /node_modules/, loader: ['babel-loader']},
             {test: /\.css$/, exclude: /node_modules/, use: ['style-loader', 'css-loader']},
-            {test: /\.(jpg|png|gif|svg)$/, exclude: /node_modules/, use: 'file-loader?limit=100000&name=./assets/images/[hash].[ext]'},
+            {
+                test: /\.(jpg|png|gif|svg)$/,
+                exclude: /node_modules/,
+                use: 'file-loader?limit=100000&name=./assets/images/[hash].[ext]'
+            },
             {
                 test: /\.(woff|woff2|eot|ttf|svg)$/,
                 exclude: /node_modules/,

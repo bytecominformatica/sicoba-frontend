@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import logo from '../images/logo.png';
 import background from '../images/sidebar-background.jpg';
+import LoginResource from './login-resource';
+import Toast from "../helpers/toast";
 
 class Login extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            email: '',
+            username: '',
             password: '',
             remember: false
         };
@@ -25,9 +26,40 @@ class Login extends Component {
         });
     }
 
+    required(inputs) {
+        let invalids = []
+        for (let key in inputs) {
+            let value = inputs[key];
+            if (!value || !value.trim().length) {
+                invalids.push(key);
+            }
+        }
+        return invalids;
+    }
+
     attemptLogin(event) {
-        // alert('A name was submitted: ' + this.state.email);
         event.preventDefault();
+        var inputs = $( "form" ).find('input');
+        inputs.each((input)=>{
+
+            console.log(input);
+            console.log(input.isValid());
+        });
+        // let invalids = this.required({
+        //     username: this.state.username,
+        //     password: this.state.password
+        // })
+        // if (invalids.length) {
+        //     Toast.info("Campo(s) obrigatorio(s): " + JSON.stringify(invalids));
+        // } else {
+        //     console.log(invalids);
+        //     new LoginResource().login(this.state.username, this.state.password)
+        //         .then((data) => {
+        //             console.log('resul');
+        //             console.log(data);
+        //         });
+        //
+        // }
     }
 
     render() {
@@ -46,10 +78,11 @@ class Login extends Component {
                             <div className="card-content">
                                 <div className="input-field">
                                     <i className="fa fa-user-circle prefix"/>
-                                    <input className="validate" name="email" id="email" type="email"
-                                           value={this.state.email}
+                                    <input className="validate" name="username" id="username"
+                                           type="text" required
+                                           value={this.state.username}
                                            onChange={this.handleInputChange}/>
-                                    <label htmlFor="email">Email</label>
+                                    <label htmlFor="username" data-error="wrong" data-success="right">Usuário</label>
                                 </div>
 
                                 <div className="row">
@@ -58,6 +91,7 @@ class Login extends Component {
                                             <i className="fa fa-keyboard-o prefix"/>
                                             <input name="password" id="password"
                                                    type="password"
+                                                   required
                                                    value={this.state.password}
                                                    onChange={this.handleInputChange}/>
                                             <label htmlFor="password">Senha</label>

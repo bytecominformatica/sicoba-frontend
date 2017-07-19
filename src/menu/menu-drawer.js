@@ -32,7 +32,7 @@ class MenuDrawer extends Component {
                             <div className="background center">
                                 <img src={sidebarBackground}/>
                             </div>
-                            <img className="circle background-white" src={logo} width="20px"/>
+                            <img className="circle white" src={logo} width="20px"/>
                             <span className="white-text name">Bytecom Informática</span>
                             <span className="white-text email">sac@bytecominformatica.com.br</span>
                         </div>
