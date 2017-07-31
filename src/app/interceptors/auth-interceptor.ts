@@ -25,6 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(req)
       .catch((err) => {
         if (err.status === 401 && !err.url.endsWith('/api/login')) {
+          localStorage.removeItem(environment.currentUserKey);
           this.router.navigate(['/login']);
         }
         throw err;
