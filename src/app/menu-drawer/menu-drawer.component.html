@@ -1,0 +1,64 @@
+<div>
+  <ul id="slide-out" class="side-nav">
+    <li>
+      <div class="user-view">
+        <div class="background center">
+          <img src="../assets/sidebar-background.jpg"/>
+        </div>
+        <img class="circle white" src="../assets/logo.png" width="20px"/>
+        <span class="white-text name">{{currentUser.name}}</span>
+        <span class="white-text email">{{currentUser.username}}@bytecominformatica.com.br</span>
+      </div>
+    </li>
+    <li>
+      <a routerLink="/login" (click)="onSelect()">
+        Login
+      </a>
+    </li>
+    <div *ngFor="let item of itens">
+      <li *ngIf="!isMenu(item)" [class.active]="selectedItem === item">
+        <a routerLink={{item.url}} (click)="onSelect(item)">
+          <i *ngIf="item.icon" class={{item.icon}}></i>
+          {{item.name}}
+        </a>
+      </li>
+
+      <ul class="collapsible collapsible-accordion" *ngIf="isMenu(item)">
+        <li>
+          <a class="collapsible-header">
+            <i *ngIf="item.icon" class={{item.icon}}></i>
+            {{item.name}}
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+          <div class="collapsible-body">
+            <ul>
+              <li *ngFor="let item of item.itens" class="submenu-item">
+                <a routerLink={{item.url}} (click)="onSelect(item)">
+                  <i *ngIf="item.icon" class={{item.icon}}></i>
+                  {{item.name}}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <li>
+      <a href='https://github.com/bytecominformatica/sicoba/issues' (click)="onSelect()" target="_blank">
+        <i class='fa fa-github'></i>
+        Sugestões e Melhorias
+      </a>
+    </li>
+  </ul>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">
+        <img src="../assets/logo-negative.png" width='55px'/>
+      </a>
+      <a href="#" data-activates="slide-out" class="button-collapse show-on-medium-and-up">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+</div>

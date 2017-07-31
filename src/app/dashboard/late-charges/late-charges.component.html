@@ -1,0 +1,21 @@
+<table class="bordered striped">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Valor</th>
+    <th>Valor Pago</th>
+    <th>Vencimento</th>
+    <th>Pago em</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let charge of charges">
+    <td>{{charge.id}}</td>
+    <td>{{charge.value | currency}}</td>
+    <td>{{charge.paidValue | currency:'$'}}</td>
+    <td>{{charge.expireAt | date:'dd/MM/yyyy'}}</td>
+    <td>{{charge.paidAt | date:'dd/MM/yyyy'}}</td>
+  </tr>
+  </tbody>
+</table>
