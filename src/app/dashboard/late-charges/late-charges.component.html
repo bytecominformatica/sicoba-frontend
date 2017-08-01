@@ -1,21 +1,30 @@
+<hr/>
 <table class="bordered striped">
   <thead>
   <tr>
     <th>#</th>
+    <th>Cliente</th>
     <th>Valor</th>
     <th>Valor Pago</th>
     <th>Vencimento</th>
     <th>Pago em</th>
+    <th>status</th>
   </tr>
   </thead>
 
   <tbody>
-  <tr *ngFor="let charge of charges">
-    <td>{{charge.id}}</td>
-    <td>{{charge.value | currency}}</td>
-    <td>{{charge.paidValue | currency:'$'}}</td>
+  <tr *ngFor="let charge of charges; let i = index">
+    <td>{{i+1}}</td>
+    <td>{{charge.consumer.name}}</td>
+    <td>{{charge.value | number:'1.2'}}</td>
+    <td>{{charge.paidValue | number:'1.2'}}</td>
     <td>{{charge.expireAt | date:'dd/MM/yyyy'}}</td>
     <td>{{charge.paidAt | date:'dd/MM/yyyy'}}</td>
+    <td title="{{charge | chargeStatus:'description'}}">
+      <i class="new badge" [ngClass]="charge | chargeStatus:'color'">
+        {{charge | chargeStatus}}
+      </i>
+    </td>
   </tr>
   </tbody>
 </table>

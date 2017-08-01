@@ -1,4 +1,6 @@
 import {BaseModel} from '../generic/base-model';
+import {StatusCharge} from "./status-charge.enum";
+import {Consumer} from "../consumer/consumer";
 
 export class Charge extends BaseModel {
   value?: number;
@@ -14,10 +16,9 @@ export class Charge extends BaseModel {
   description?: string;
   manualPayment?: boolean;
   chargeId?: number;
-  // status?: StatusCharge;
+  status?: StatusCharge;
   expireAt?: Date;
   paidAt?: Date;
-  // payment?: PaymentType;
-  // cliente?: Cliente;
+  consumer?: Consumer;
   // carnet?: Carnet;
 }

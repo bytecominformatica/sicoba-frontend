@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {MenuService} from './menu.service';
 import {MenuItem} from './menu-item';
 import {User} from '../login/user';
-import {LoginService} from '../login/login.service';
+import {AuthService} from '../login/auth.service';
 
 declare var $: any;
 
@@ -18,7 +18,7 @@ export class MenuDrawerComponent implements OnInit {
   selectedItem: MenuItem;
   currentUser: User = new User();
 
-  constructor(private menuService: MenuService, private loginService: LoginService) {
+  constructor(private menuService: MenuService, private loginService: AuthService) {
     this.currentUser = loginService.getCurrentUser();
   }
 

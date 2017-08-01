@@ -4,32 +4,32 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import {ClienteService} from './cliente/cliente.service';
-import {LoginService} from './login/login.service';
+import {ConsumerService} from './consumer/consumer.service';
+import {AuthService} from './login/auth.service';
 
 import {AppComponent} from './app.component';
 import {MenuDrawerComponent} from './menu-drawer/menu-drawer.component';
 import {LoginComponent} from './login/login.component';
-import {ClienteComponent} from './cliente/cliente/cliente.component';
-import {ClienteListComponent} from './cliente/cliente-list/cliente-list.component';
+import {ConsumerComponent} from './consumer/consumer/consumer.component';
+import {ConsumerListComponent} from './consumer/consumer-list/consumer-list.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AppRoutingModule} from './app-routing.module';
-import {GenericComponent} from './generic/generic/generic.component';
 import {LateChargesComponent} from './dashboard/late-charges/late-charges.component';
 import {AuthInterceptor} from './interceptors/auth-interceptor';
 import {ErrorInterceptor} from './interceptors/error-interceptor';
 import {ApiInterceptor} from './interceptors/api-interceptor';
+import {ChargeStatusPipe} from './charge/charge-status.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuDrawerComponent,
     LoginComponent,
-    ClienteComponent,
-    ClienteListComponent,
+    ConsumerComponent,
+    ConsumerListComponent,
     DashboardComponent,
-    GenericComponent,
-    LateChargesComponent
+    LateChargesComponent,
+    ChargeStatusPipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +38,7 @@ import {ApiInterceptor} from './interceptors/api-interceptor';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ClienteService, LoginService,
+  providers: [ConsumerService, AuthService,
     {provide: LOCALE_ID, useValue: 'pt-BR'},
     {
       provide: HTTP_INTERCEPTORS,

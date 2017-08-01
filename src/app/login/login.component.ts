@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from './user';
-import {LoginService} from './login.service';
+import {AuthService} from './auth.service';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import {LoginService} from "./login.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
 
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   remember: boolean;
   submitted = false;
 
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(private loginService: LoginService, private authService: AuthService, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,10 +27,10 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     this.loginService.attemptLogin(this.user.username, this.user.password)
       .subscribe((user) => {
-        localStorage.setItem(environment.currentUserKey, JSON.stringify(user));
+        this.authService.setCurrentUser(user);
         this.router.navigate(['/']);
       }, (error) => {
-        localStorage.removeItem(environment.currentUserKey);
+        this.authService.cleanCredentials();
       });
   }
 }

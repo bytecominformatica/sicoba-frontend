@@ -23,13 +23,13 @@ code {
   padding: 0.1em;
 }
 
-.ng-valid[required], .ng-valid.required  {
+.ng-valid[required], .ng-valid.required {
   /*border-right: 5px solid #42A948; !* green *!*/
   border-bottom: 1px solid #4CAF50 !important;
   box-shadow: 0 1px 0 0 #4CAF50 !important;
 }
 
-.ng-dirty.ng-invalid:not(form)  {
+.ng-dirty.ng-invalid:not(form) {
   /*border-right: 5px solid #a94442; !* red *!*/
   border-bottom: 1px solid #F44336 !important;
   box-shadow: 0 1px 0 0 #F44336 !important;
@@ -38,4 +38,18 @@ code {
 .input-field span.badge {
   margin-top: -1.4em;
   margin-bottom: 1.4em;
+}
+
+i.badge.new {
+  color: #fff;
+  background-color: #26a69a;
+  border-radius: 2px;
+}
+
+i.badge {
+  min-width: 3rem;
+  padding: 3px 6px;
+  text-align: center;
+  color: #757575;
+  box-sizing: border-box;
 }

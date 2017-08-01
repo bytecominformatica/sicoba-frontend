@@ -8,15 +8,17 @@ import {User} from '../login/user';
 import 'rxjs/add/operator/catch';
 import {Router} from '@angular/router';
 
+import {AuthService} from '../login/auth.service';
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.isServerRequest(req) && !this.isLoginRequest(req)) {
-      const currentUser = JSON.parse(localStorage.getItem(environment.currentUserKey)) as User;
+      const currentUser = this.authService.getCurrentUser();
       if (currentUser && currentUser.token) {
         req = req.clone({setHeaders: {Authorization: currentUser.token}});
       }
@@ -25,7 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(req)
       .catch((err) => {
         if (err.status === 401 && !err.url.endsWith('/api/login')) {
-          localStorage.removeItem(environment.currentUserKey);
+          this.authService.cleanCredentials();
           this.router.navigate(['/login']);
         }
         throw err;

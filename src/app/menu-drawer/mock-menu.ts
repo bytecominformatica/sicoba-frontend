@@ -14,7 +14,7 @@ export const MENU_ITENS: MenuItem[] = [
       {
         name: 'Clientes',
         icon: 'fa fa-user fa-fw',
-        url: '/clientes'
+        url: '/consumers'
       },
       {
         name: 'Planos',

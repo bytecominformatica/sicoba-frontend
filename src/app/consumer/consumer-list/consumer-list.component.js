@@ -15,16 +15,16 @@ var ClienteListComponent = (function () {
     };
     ClienteListComponent.prototype.getClientes = function () {
         var _this = this;
-        this.clientService.getClientes()
+        this.clientService.getConsumers()
             .then(function (clientes) { return _this.clientes = clientes; });
     };
     return ClienteListComponent;
 }());
 ClienteListComponent = __decorate([
     core_1.Component({
-        selector: 'app-cliente-list',
-        templateUrl: './cliente-list.component.html',
-        styleUrls: ['./cliente-list.component.css']
+        selector: 'app-consumer-list',
+        templateUrl: './consumer-list.component.html',
+        styleUrls: ['./consumer-list.component.css']
     })
 ], ClienteListComponent);
 exports.ClienteListComponent = ClienteListComponent;

@@ -29,9 +29,9 @@ var ClienteComponent = (function () {
 }());
 ClienteComponent = __decorate([
     core_1.Component({
-        selector: 'app-cliente',
-        templateUrl: './cliente.component.html',
-        styleUrls: ['./cliente.component.css']
+        selector: 'app-consumer',
+        templateUrl: './consumer.component.html',
+        styleUrls: ['./consumer.component.css']
     })
 ], ClienteComponent);
 exports.ClienteComponent = ClienteComponent;
