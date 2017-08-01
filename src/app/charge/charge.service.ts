@@ -5,14 +5,12 @@ import {Charge} from './charge';
 
 @Injectable()
 export class ChargeService extends CrudService<Charge> {
-  private url = '/charges';
-
   getPath(): string {
-    return this.url;
+    return '/charges';
   }
 
   overdue(): Observable<Charge[]> {
-    return this.get('overdue');
+    return this.query(null, 'overdue');
   }
 
 }

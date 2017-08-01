@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ConsumerService} from '../consumer.service';
+import {Consumer} from "../consumer";
 
 @Component({
   selector: 'app-consumer-list',
@@ -7,7 +8,8 @@ import {ConsumerService} from '../consumer.service';
   styleUrls: ['./consumer-list.component.css']
 })
 export class ConsumerListComponent implements OnInit {
-  consumers: any;
+  consumers: Consumer[];
+  name?: string;
 
   constructor(private consumerService: ConsumerService) {
   }
@@ -16,10 +18,16 @@ export class ConsumerListComponent implements OnInit {
     this.getConsumers();
   }
 
-  getConsumers() {
-    this.consumerService.query()
+  getByName(name: any) {
+    this.consumerService.query({name: name})
       .subscribe(consumers => {
-        console.log(consumers);
+        this.consumers = consumers;
+      });
+  }
+
+  getConsumers() {
+    this.consumerService.lastChanged()
+      .subscribe(consumers => {
         this.consumers = consumers;
       });
   }

@@ -1,19 +1,14 @@
-nav {
-  color: #fff;
-  background-color: #00265c;
-}
-
 .btn {
   color: #fff;
-  background-color: #bb2020;
+  background-color: #bb2020 !important;
 }
 
 .btn:hover {
-  background-color: #a31c1c;
+  background-color: #a31c1c !important;
 }
 
 .btn:focus {
-  background-color: rgba(163, 28, 28, 0.85);
+  background-color: rgba(163, 28, 28, 0.85) !important;
 }
 
 code {

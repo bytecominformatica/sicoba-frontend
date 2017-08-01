@@ -7,18 +7,23 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ConsumerService} from './consumer/consumer.service';
 import {AuthService} from './login/auth.service';
 
+import {AppRoutingModule} from './app-routing.module';
+import {AuthInterceptor} from './interceptors/auth-interceptor';
+import {ErrorInterceptor} from './interceptors/error-interceptor';
+import {ApiInterceptor} from './interceptors/api-interceptor';
+
+import {ChargeStatusPipe} from './charge/charge-status.pipe';
+import {ConsumerStatusPipe} from './consumer/consumer-status.pipe';
 import {AppComponent} from './app.component';
 import {MenuDrawerComponent} from './menu-drawer/menu-drawer.component';
 import {LoginComponent} from './login/login.component';
 import {ConsumerComponent} from './consumer/consumer/consumer.component';
 import {ConsumerListComponent} from './consumer/consumer-list/consumer-list.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {AppRoutingModule} from './app-routing.module';
 import {LateChargesComponent} from './dashboard/late-charges/late-charges.component';
-import {AuthInterceptor} from './interceptors/auth-interceptor';
-import {ErrorInterceptor} from './interceptors/error-interceptor';
-import {ApiInterceptor} from './interceptors/api-interceptor';
-import {ChargeStatusPipe} from './charge/charge-status.pipe';
+import {InputErrorComponent} from './util/input-error/input-error.component';
+import {ConsumerDashboardComponent} from './consumer/consumer-dashboard/consumer-dashboard.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import {ChargeStatusPipe} from './charge/charge-status.pipe';
     ConsumerListComponent,
     DashboardComponent,
     LateChargesComponent,
-    ChargeStatusPipe
+    ChargeStatusPipe,
+    InputErrorComponent,
+    ConsumerStatusPipe,
+    ConsumerDashboardComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

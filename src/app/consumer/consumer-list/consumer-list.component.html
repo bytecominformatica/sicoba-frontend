@@ -1,8 +1,38 @@
-<p>
-  cliente-list works!
-</p>
-<div *ngIf="consumers">
-
-  {{consumers.login}}
-
+<div class="row">
+  <form class="col s12" #formSearchName="ngForm" (submit)="getByName(nameInput.value)">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="name" name="name" [(ngModel)]="name" #nameInput="ngModel" type="text" required>
+        <label for="name">Nome</label>
+        <app-input-error [input]="nameInput"></app-input-error>
+      </div>
+      <div class="input-field col s6">
+        <button class="btn" [disabled]="formSearchName.form.invalid"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </form>
 </div>
+<hr/>
+<table class="bordered highlight">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nome</th>
+    <th>Status</th>
+    <th>Exibir</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let consumer of consumers; let i = index">
+    <td>{{i+1}}</td>
+    <td>{{consumer.name}}</td>
+    <td title="{{consumer.status | consumerStatus:'description'}}" class="center">
+      <i class="new badge" [ngClass]="consumer.status | consumerStatus:'color'">
+        {{consumer.status | consumerStatus}}
+      </i>
+    </td>
+    <td><a routerLink="/consumers/{{consumer.id}}/dashboard" class="btn">Dashboad</a></td>
+  </tr>
+  </tbody>
+</table>

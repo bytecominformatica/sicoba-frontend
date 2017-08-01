@@ -12,8 +12,8 @@ export abstract class CrudService<T extends BaseModel> {
     return this.http.get(this.getPathId(id));
   }
 
-  query(params?: any): Observable<T[]> {
-    return this.http.get(this.getPath(), {params: this.createHttpParams(params)});
+  query(params?: any, action?: any): Observable<T[]> {
+    return this.http.get(this.getPathIdOptional(action), {params: this.createHttpParams(params)});
   }
 
   save(model: T) {

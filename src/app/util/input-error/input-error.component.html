@@ -1,0 +1,5 @@
+<span class="badge red-text" [hidden]="input.valid || input.pristine">
+  <div *ngFor="let message of getMessages()">
+    {{message}}
+  </div>
+</span>
